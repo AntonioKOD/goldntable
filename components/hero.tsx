@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { BentoCell, BentoGrid, ContainerScale, ContainerScroll } from "@/components/blocks/hero-gallery-scroll-animation"
 import restaurant1 from "@/public/restaurant_1.jpeg"
 import restaurant2 from "@/public/restaurant_2.jpeg"

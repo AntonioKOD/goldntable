@@ -1,5 +1,5 @@
-import Image from "next/image";
-import {HeroDemo1, HeroDemo2} from "@/components/hero";
+
+import {HeroDemo1} from "@/components/hero";
 
 export default function Home() {
   return (
