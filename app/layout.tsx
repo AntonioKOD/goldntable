@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import Link from "next/link";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import NavbarComponent from "@/components/Navbar";
+import { SiteFooter } from "@/components/footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Main sans-serif font
+const montserrat = Montserrat({
   subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// (Optional) keep mono font if you still want it for code blocks or UI
+// import { Geist_Mono } from "next/font/google";
+// const geistMono = Geist_Mono({
+//   subsets: ["latin"],
+//   variable: "--font-mono",
+// });
 
 export const metadata: Metadata = {
   title: "Boston Hospitality Training",
@@ -27,19 +31,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${montserrat.variable} antialiased`} // add geistMono.variable if you keep it
+      >
         <header className="sticky top-0 z-40 w-full">
-         <NavbarComponent/>
+          <NavbarComponent />
         </header>
         <main className="min-h-[calc(100dvh-4rem)]">{children}</main>
         <footer className="border-t">
-          <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-muted-foreground flex items-center justify-between">
-            <p>© {new Date().getFullYear()} Boston Hospitality Training</p>
-            <div className="flex gap-4">
-              <Link href="/about" className="hover:opacity-80">About</Link>
-              <Link href="/faq" className="hover:opacity-80">FAQ</Link>
-            </div>
-          </div>
+          <SiteFooter />
         </footer>
       </body>
     </html>
